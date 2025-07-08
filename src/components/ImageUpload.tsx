@@ -61,7 +61,7 @@ export const ImageUpload = ({ onImageUpload, isProcessing }: ImageUploadProps) =
   };
 
   return (
-    <Card className="relative overflow-hidden border-2 border-dashed border-muted-foreground/25 bg-gradient-to-br from-surface to-surface-elevated p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)]">
+    <Card className="relative overflow-hidden border-2 border-dashed border-muted-foreground/25 p-8 transition-all duration-300 hover:border-primary/50">
       <div
         className={`relative ${dragActive ? 'scale-105' : ''} transition-transform duration-300`}
         onDragEnter={handleDrag}
@@ -71,7 +71,7 @@ export const ImageUpload = ({ onImageUpload, isProcessing }: ImageUploadProps) =
       >
         {preview ? (
           <div className="space-y-4">
-            <div className="relative mx-auto max-w-md overflow-hidden rounded-lg border border-primary/20">
+            <div className="relative mx-auto max-w-md overflow-hidden rounded-lg border">
               <img
                 src={preview}
                 alt="Upload preview"
@@ -92,7 +92,6 @@ export const ImageUpload = ({ onImageUpload, isProcessing }: ImageUploadProps) =
                 <Button
                   onClick={() => document.getElementById('file-input')?.click()}
                   variant="outline"
-                  className="bg-primary/10 border-primary/30 hover:bg-primary/20 transition-colors"
                 >
                   <Upload className="h-4 w-4 mr-2" />
                   Upload Different Image
@@ -102,20 +101,16 @@ export const ImageUpload = ({ onImageUpload, isProcessing }: ImageUploadProps) =
           </div>
         ) : (
           <div className="text-center space-y-6">
-            <div className="relative mx-auto w-32 h-32 flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full animate-glow-pulse" />
-              <div className="relative bg-surface-elevated p-6 rounded-full border border-primary/30">
-                <Image className="h-12 w-12 text-primary" />
-              </div>
+            <div className="inline-flex items-center justify-center p-6 bg-primary/10 rounded-full">
+              <Image className="h-12 w-12 text-primary" />
             </div>
             
             <div className="space-y-3">
-              <h3 className="text-xl font-semibold text-foreground flex items-center justify-center gap-2">
-                <Zap className="h-5 w-5 text-accent" />
-                AI Character Recognition
+              <h3 className="text-xl font-semibold text-foreground">
+                Upload Character Image
               </h3>
               <p className="text-muted-foreground max-w-md mx-auto">
-                Upload an image containing a character from series, movies, or anime. Our AI will identify them and provide detailed information.
+                Drag and drop an image here or click to select one
               </p>
             </div>
             
@@ -123,7 +118,7 @@ export const ImageUpload = ({ onImageUpload, isProcessing }: ImageUploadProps) =
               <Button
                 onClick={() => document.getElementById('file-input')?.click()}
                 disabled={isProcessing}
-                className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground font-medium px-8 py-3 h-auto shadow-lg hover:shadow-xl transition-all duration-300"
+                className="px-8 py-3 h-auto"
               >
                 {isProcessing ? (
                   <>
@@ -137,10 +132,6 @@ export const ImageUpload = ({ onImageUpload, isProcessing }: ImageUploadProps) =
                   </>
                 )}
               </Button>
-              
-              <p className="text-sm text-muted-foreground">
-                or drag and drop an image here
-              </p>
             </div>
           </div>
         )}
