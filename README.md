@@ -1,73 +1,52 @@
-# Welcome to your Lovable project
+# Chara Scribe Vision
 
-## Project info
+A visual character-reference workspace for uploading an image, selecting a category, and reviewing structured character information.
 
-**URL**: https://lovable.dev/projects/8e28afbd-98b0-4e7e-b360-ac9e88ccb3bc
+## Overview
 
-## How can I edit this code?
+Chara Scribe Vision provides a focused interface for image-based character exploration. Users upload an image, choose a category such as anime, movies, or series, and review a structured result containing identity, source series, description, traits, popularity, and first appearance.
 
-There are several ways of editing your application.
+## Highlights
 
-**Use Lovable**
+- Drag-and-drop image upload with preview.
+- Category selection for different character domains.
+- Structured result card with traits and reference metadata.
+- Loading, error, and empty states for a polished user flow.
+- Service boundary that can be connected to a production recognition provider.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8e28afbd-98b0-4e7e-b360-ac9e88ccb3bc) and start prompting.
+## Technology
 
-Changes made via Lovable will be committed automatically to this repo.
+- React 18 and TypeScript
+- Vite
+- Tailwind CSS and shadcn/ui
+- Supabase client integration
+- Zod, date-fns, and Lucide React
 
-**Use your preferred IDE**
+## Local development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Copy `.env.example` to `.env` when backend configuration is required. Keep local environment files and private service credentials out of version control.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Recognition service
 
-**Use GitHub Codespaces**
+The current client flow uses a service abstraction in `src/services/characterRecognition.ts`. The repository includes documentation for connecting a production recognition provider; provider credentials should be supplied through server-side environment variables rather than browser code.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project structure
 
-## What technologies are used for this project?
+The primary screen is under `src/pages/Index.tsx`. Upload, category, and result experiences are separated into `src/components/`, while provider integration remains isolated under `src/services/`.
 
-This project is built with:
+## Status
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+A portfolio prototype focused on image upload UX, structured results, and clean integration boundaries for visual recognition services.
 
-## How can I deploy this project?
+## License
 
-Simply open [Lovable](https://lovable.dev/projects/8e28afbd-98b0-4e7e-b360-ac9e88ccb3bc) and click on Share -> Publish.
+No license has been declared yet. Add a license before accepting external contributions or distributing the project.
 
-## Can I connect a custom domain to my Lovable project?
+## Author
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Bilel JM** — [GitHub](https://github.com/bilel11111)
